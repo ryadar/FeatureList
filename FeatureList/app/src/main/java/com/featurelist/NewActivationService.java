@@ -20,7 +20,6 @@ public class NewActivationService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Logger.log("onStartCommand");
-        String activationString=intent.getExtras().getString(Constant.ACTIVATION_STRING);
         return START_NOT_STICKY;
     }
 
@@ -73,8 +72,8 @@ public class NewActivationService extends Service {
         this.activity = (Callbacks)activity;
     }
     public interface Callbacks{
-        public void success(Cursor cursor);
-        public void failure(String message);
+         void success(Cursor cursor);
+         void failure(String message);
     }
     ArrayList<FeatureListItem> createMockValues(){
         ArrayList<FeatureListItem> itemList = new ArrayList<>();
